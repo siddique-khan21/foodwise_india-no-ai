@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodWise India - Food Waste Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-recycle"></i>
+                </div>
+                <h1 class="logo">FoodWise India</h1>
+            </div>
+            <p class="tagline">Reducing Food Waste, Feeding India</p>
+            
+            <!-- Floating Animation Cards -->
+            <div class="floating-cards">
+                <div class="floating-card">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Donors</h4>
+                    <p>Share Surplus</p>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h4>NGOs</h4>
+                    <p>Receive Food</p>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-recycle"></i>
+                    <h4>Eco Partners</h4>
+                    <p>Sustainable Solutions</p>
+                </div>
+            </div>
+
+
+            <!-- Profile Selection Title -->
+            <h2 class="profile-title">Select Your Profile</h2>
+            
+            <!-- Role Selection -->
+            <div class="role-selection">
+                <div class="role-card" onclick="openRegistration('donor')">
+                    <div class="role-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Food Donor</h3>
+                    <p>Restaurants, Events, Caterers</p>
+                </div>
+                <div class="role-card" onclick="openRegistration('receiver')">
+                    <div class="role-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Food Receiver</h3>
+                    <p>NGOs, Orphanages, Shelters</p>
+                </div>
+                <div class="role-card" onclick="openRegistration('admin')">
+                    <div class="role-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Admin</h3>
+                    <p>Platform Management</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Volunteer CTA Section -->
+    <section class="volunteer-cta">
+        <div class="container">
+            <h2>Join as a Volunteer</h2>
+            <p>Be part of the solution. Help us reduce food waste and feed those in need.</p>
+            <button class="btn btn-secondary" onclick="openRegistration('volunteer')">Become a Volunteer</button>
+        </div>
+    </section>
+
+    <!-- Animal Farms & Composting Section -->
+    <section class="solutions-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Eco-Friendly Solutions</h2>
+                <p>Complete food waste management cycle</p>
+            </div>
+            
+            <div class="solutions-intro">
+                <p>For <strong>Cattle Farms & Composting Facilities</strong> - Partner with us to transform non-edible food waste into valuable resources. Help create a sustainable ecosystem while generating additional revenue streams.</p>
+            </div>
+            
+            <div class="solutions-grid">
+                <div class="solution-card" onclick="openRegistration('animal')">
+                    <i class="fas fa-cow" style="font-size: 3rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                    <h3>Animal Feed Partner</h3>
+                    <p>Convert non-edible food waste into nutritious animal feed for cattle farms</p>
+                    <div style="margin-top: 1rem; color: var(--primary-green); font-weight: 600;">
+                        Click to Register as Partner
+                    </div>
+                </div>
+                <div class="solution-card" onclick="openRegistration('compost')">
+                    <i class="fas fa-recycle" style="font-size: 3rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                    <h3>Composting Partner</h3>
+                    <p>Transform food waste into organic compost for farming and gardening</p>
+                    <div style="margin-top: 1rem; color: var(--primary-green); font-weight: 600;">
+                        Click to Register as Partner
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section class="rules-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Platform Rules & Guidelines</h2>
+                <p>Ensuring safety, quality, and trust for all users</p>
+            </div>
+            
+            <div class="rules-container">
+                <div class="rules-category">
+                    <h3 onclick="toggleRules('donor-rules')">
+                        Donor Rules
+                        <i class="fas fa-chevron-down"></i>
+                    </h3>
+                    <div class="rules-content" id="donor-rules">
+                        <ul>
+                            <li>Only donate safe, edible food</li>
+                            <li>Provide accurate food details and timing</li>
+                            <li>Maintain proper storage temperatures</li>
+                            <li>Coordinate promptly with receivers</li>
+                            <li>Ensure proper packaging for transport</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rules-category">
+                    <h3 onclick="toggleRules('receiver-rules')">
+                        NGO/Receiver Rules
+                        <i class="fas fa-chevron-down"></i>
+                    </h3>
+                    <div class="rules-content" id="receiver-rules">
+                        <ul>
+                            <li>Only accept assigned donations</li>
+                            <li>Follow proper pickup protocols</li>
+                            <li>Provide timely feedback to donors</li>
+                            <li>Maintain hygiene standards</li>
+                            <li>Distribute food promptly after receipt</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rules-category">
+                    <h3 onclick="toggleRules('volunteer-rules')">
+                        Volunteer Rules
+                        <i class="fas fa-chevron-down"></i>
+                    </h3>
+                    <div class="rules-content" id="volunteer-rules">
+                        <ul>
+                            <li>Only assist approved pickup requests</li>
+                            <li>Maintain professional conduct</li>
+                            <li>Respect donor and receiver privacy</li>
+                            <li>Report issues immediately</li>
+                            <li>Follow safety guidelines during transport</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rules-category">
+                    <h3 onclick="toggleRules('farm-rules')">
+                        Compost/Animal Feed Farm Rules
+                        <i class="fas fa-chevron-down"></i>
+                    </h3>
+                    <div class="rules-content" id="farm-rules">
+                        <ul>
+                            <li>Only collect non-edible donations</li>
+                            <li>Maintain hygiene and safety standards</li>
+                            <li>Follow environmental regulations</li>
+                            <li>Provide quality compost/feed</li>
+                            <li>Coordinate pickup schedules efficiently</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FoodWise India</h3>
+                    <p>Transforming food waste into hope through technology and community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Impact</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> contact@foodwiseindia.org</p>
+                    <p><i class="fas fa-phone"></i> +91 1800-FOODWISE</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Settings</h3>
+                    <div class="theme-toggle">
+                        <span>Dark Mode</span>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="theme-checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <button class="btn btn-primary" style="margin-top: 15px;">Profile</button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 FoodWise India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalBody">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+ <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header">
+        <h3>🤖 FoodWise AI Assistant</h3>
+    </div>
+    <div class="chatbot-body">
+        <!-- Food Waste Chat -->
+        <div class="chat-section">
+            <h4>🍽️ Food Waste Chat</h4>
+            <input type="text" id="wasteQuery" placeholder="Ask about reducing food waste..." style="width: 100%; padding: 8px; margin: 5px 0;">
+            <button class="chat-option" onclick="chatAboutWaste()">Get Advice</button>
+        </div>
+
+        <!-- Quantity Prediction -->
+        <div class="chat-section">
+            <h4>📊 Food Quantity Predictor</h4>
+            <input type="text" id="eventDetails" placeholder="e.g., 50 people, lunch, vegetarian" style="width: 100%; padding: 8px; margin: 5px 0;">
+            <button class="chat-option" onclick="predictQuantity()">Predict Quantity</button>
+        </div>
+
+        <!-- Recipe Generator -->
+        <div class="chat-section">
+            <h4>👨‍🍳 Recipe Generator</h4>
+            <input type="text" id="ingredientsList" placeholder="e.g., rice, vegetables, spices" style="width: 100%; padding: 8px; margin: 5px 0;">
+            <button class="chat-option" onclick="generateRecipe()">Generate Recipe</button>
+        </div>
+    </div>
+</div>
+
+   
+   <!-- Login Modal -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeLoginModal()">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2>Login to FoodWise India</h2>
+        <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required>
+        </div>
+        <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required>
+        </div>
+        <button class="btn btn-primary" onclick="submitLogin()">Login</button>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            Default password: <strong>TempPass123!</strong>
+        </p>
+    </div>
+</div>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <h2>FoodWise India</h2>
+        </div>
+        <div class="nav-links" style="display: flex; margin-left: auto;">
+            <button class="login-btn" onclick="openLoginModal()">Login</button>
+        </div>
+    </div>
+</nav>
+<!-- Professional Chatbot -->
+<div class="chatbot-container">
+    <button class="chatbot-toggle" id="chatbotToggle">
+        <i class="fas fa-robot"></i>
+    </button>
+    
+    <div class="chatbot-window" id="chatbotWindow">
+        <!-- Chat Header -->
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chatbot-info">
+                <h3>FoodWise AI Assistant</h3>
+                <span class="status">🟢 Online</span>
+            </div>
+            <button class="close-chat" onclick="closeChatbot()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Chat Body -->
+        <div class="chatbot-body" id="chatbotBody">
+            <!-- Welcome Message -->
+            <div class="chat-message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Hello! I'm your FoodWise AI Assistant. How can I help you today?</p>
+                    <div class="quick-options">
+                        <button class="quick-option" onclick="showFeature('prediction')">
+                            🍽️ Food Quantity Prediction
+                        </button>
+                        <button class="quick-option" onclick="showFeature('recipe')">
+                            👨‍🍳 Recipe Generator
+                        </button>
+                        <button class="quick-option" onclick="showFeature('waste')">
+                            ♻️ Food Waste Advice
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <!-- Food Prediction Form will go here -->
+             <div class="feature-form" id="predictionForm" style="display: none;">
+    <div class="form-header">
+        <h4>🍽️ Food Quantity Prediction</h4>
+        <p>Get precise food quantities for your event</p>
+    </div>
+    
+    <div class="form-grid">
+        <div class="form-group">
+            <label>Event Type</label>
+            <select id="eventType">
+                <option value="">Select event type</option>
+                <option value="wedding">Wedding</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="birthday">Birthday Party</option>
+                <option value="festival">Festival/Celebration</option>
+                <option value="conference">Conference</option>
+                <option value="casual">Casual Gathering</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Meal Type</label>
+            <select id="mealType">
+                <option value="">Select meal type</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snacks">Snacks/Tea</option>
+                <option value="buffet">Buffet</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Number of Guests</label>
+            <input type="number" id="guestCount" placeholder="e.g., 100" min="1">
+        </div>
+        
+        <div class="form-group">
+            <label>Cuisine Type</label>
+            <select id="cuisineType">
+                <option value="">Select cuisine</option>
+                <option value="north_indian">North Indian</option>
+                <option value="south_indian">South Indian</option>
+                <option value="continental">Continental</option>
+                <option value="chinese">Chinese</option>
+                <option value="mixed">Mixed Cuisine</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Veg/Non-Veg Ratio</label>
+            <select id="vegNonVeg">
+                <option value="100_0">100% Vegetarian</option>
+                <option value="70_30">70% Veg, 30% Non-Veg</option>
+                <option value="50_50">50% Veg, 50% Non-Veg</option>
+                <option value="30_70">30% Veg, 70% Non-Veg</option>
+                <option value="0_100">100% Non-Vegetarian</option>
+            </select>
+        </div>
+        
+        <div class="form-group full-width">
+            <label>Menu Summary (comma separated)</label>
+            <input type="text" id="menuSummary" placeholder="e.g., Paneer Tikka, Biryani, Naan, Gulab Jamun">
+        </div>
+        
+        <div class="form-group">
+            <label>Serving Style</label>
+            <select id="servingStyle">
+                <option value="plated">Plated Service</option>
+                <option value="buffet">Buffet Style</option>
+                <option value="family_style">Family Style</option>
+                <option value="finger_food">Finger Food</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Attendance Rate</label>
+            <select id="attendanceRate">
+                <option value="100">100% (All confirmed)</option>
+                <option value="90">90% (High attendance)</option>
+                <option value="80">80% (Medium attendance)</option>
+                <option value="70">70% (Low attendance)</option>
+            </select>
+        </div>
+    </div>
+    
+    <button class="btn-primary full-width" onclick="calculateFoodQuantity()">
+        🧮 Calculate Food Quantities
+    </button>
+    
+    <div id="predictionResult" class="result-container" style="display: none;"></div>
+</div>
+        </div>
+
+       
+            <!-- Recipe Generator Form will go here -->
+             <div class="feature-form" id="recipeForm" style="display: none;">
+    <div class="form-header">
+        <h4>👨‍🍳 Recipe Generator</h4>
+        <p>Create delicious recipes from your ingredients</p>
+    </div>
+    
+    <div class="form-grid">
+        <div class="form-group full-width">
+            <label>Ingredients Available *</label>
+            <input type="text" id="ingredientList" placeholder="e.g., rice, vegetables, chicken, spices" required>
+        </div>
+        
+        <div class="form-group">
+            <label>State of Food</label>
+            <select id="foodState">
+                <option value="fresh">Fresh/Raw</option>
+                <option value="cooked_fresh">Cooked (Fresh today)</option>
+                <option value="cooked_1day">Cooked (1 day old)</option>
+                <option value="cooked_2day">Cooked (2 days old)</option>
+                <option value="leftovers">Leftovers</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Cuisine Preference</label>
+            <select id="cuisinePreference">
+                <option value="any">Any Cuisine</option>
+                <option value="indian">Indian</option>
+                <option value="continental">Continental</option>
+                <option value="chinese">Chinese</option>
+                <option value="italian">Italian</option>
+                <option value="mexican">Mexican</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Diet Type</label>
+            <select id="dietType">
+                <option value="vegetarian">Vegetarian</option>
+                <option value="non_vegetarian">Non-Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="eggetarian">Eggetarian</option>
+                <option value="jain">Jain</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Servings Needed</label>
+            <input type="number" id="servingsNeeded" placeholder="e.g., 4" min="1" value="4">
+        </div>
+        
+        <div class="form-group">
+            <label>Time Available (minutes)</label>
+            <input type="number" id="timeAvailable" placeholder="e.g., 30" min="10" value="30">
+        </div>
+    </div>
+    
+    <button class="btn-primary full-width" onclick="generateSmartRecipe()">
+        🍳 Generate Recipe
+    </button>
+    
+    <div id="recipeResult" class="result-container" style="display: none;"></div>
+</div>
+        </div>
+
+       
+            <!-- Food Waste Form will go here -->
+             <div class="feature-form" id="wasteForm" style="display: none;">
+    <div class="form-header">
+        <h4>♻️ Food Waste Advice</h4>
+        <p>Get personalized food waste reduction strategies</p>
+    </div>
+    
+    <div class="form-grid">
+        <div class="form-group full-width">
+            <label>Your Food Waste Challenge *</label>
+            <textarea id="wasteChallenge" rows="3" placeholder="Describe your food waste issue... 
+e.g., 'I often throw away leftover vegetables'
+e.g., 'My restaurant has high food waste'
+e.g., 'I need better food storage tips'" required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>Your Role</label>
+            <select id="userRole">
+                <option value="home_cook">Home Cook</option>
+                <option value="restaurant">Restaurant Owner</option>
+                <option value="caterer">Caterer</option>
+                <option value="event_planner">Event Planner</option>
+                <option value="hotel">Hotel Kitchen</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Kitchen Scale</label>
+            <select id="kitchenScale">
+                <option value="small">Small (1-2 people)</option>
+                <option value="medium">Medium (3-5 people)</option>
+                <option value="large">Large (6+ people)</option>
+                <option value="commercial">Commercial Kitchen</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Commonly Wasted Foods</label>
+            <input type="text" id="wastedFoods" placeholder="e.g., rice, bread, vegetables">
+        </div>
+        
+        <div class="form-group">
+            <label>Budget for Solution</label>
+            <select id="budgetLevel">
+                <option value="low">Low Budget</option>
+                <option value="medium">Medium Budget</option>
+                <option value="high">High Budget</option>
+                <option value="no_limit">No Budget Limit</option>
+            </select>
+        </div>
+    </div>
+    
+    <button class="btn-primary full-width" onclick="getWasteAdvice()">
+        💡 Get Personalized Advice
+    </button>
+    
+    <div id="wasteResult" class="result-container" style="display: none;"></div>
+</div>
+        </div>
+    </div>
+</div>
+<script src="js/ai-config.js"></script>
+<script src="js/ai-service.js"></script>
+<script src="js/api.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
