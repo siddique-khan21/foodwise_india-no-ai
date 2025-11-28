@@ -38,7 +38,8 @@ async function loadNGOStats() {
 // Load available donations
 async function loadAvailableDonations() {
     const result = await getNGODonations();
-    console.log('🔄 NGO Donations Result:', result); // ADD THIS LINE
+    const container = document.getElementById('donationsList');
+    //console.log('🔄 NGO Donations Result:', result); // ADD THIS LINE
     
     if (result.error || !result.donations || result.donations.length === 0) {
         container.innerHTML = '<p>No available donations at the moment.</p>';
@@ -150,4 +151,5 @@ async function deleteDonation(donationId) {
             loadDonationHistory();
         }
     }
+
 }
